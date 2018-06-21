@@ -3,6 +3,8 @@ os:
   - linux
 compiler:
   - g++
+install:
+  - sudo pip install codecov 
 script: # -C parameter is for MakefileDir
   - make 
   - make test
@@ -10,3 +12,5 @@ script: # -C parameter is for MakefileDir
 branches:
   only:
     - master
+after_success:
+  - codecov -t 37864c49-beaa-4739-ad27-bd053302f629 -X gcov
