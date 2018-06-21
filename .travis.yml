@@ -1,0 +1,12 @@
+language: cpp
+os:
+  - linux
+compiler:
+  - g++
+script: # -C parameter is for MakefileDir
+  - make -C make
+  - make -C make test
+  - make -C make gcov # remember to add gcov flag in Makefile
+branches:
+  only:
+    - master
